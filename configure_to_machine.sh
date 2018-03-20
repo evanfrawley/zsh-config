@@ -37,7 +37,7 @@ set -e
 print_cmd "Setting up config files"
 
 cp ~/zsh-config/.zshrc ~/.zshrc
-cp ~/zsh-config/secrets.sh ~/secrets.sh
+cp ~/zsh-config/secrets.zsh ~/secrets.zsh
 source ~/.zshrc
 
 print_cmd "Done"
