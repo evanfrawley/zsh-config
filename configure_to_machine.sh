@@ -14,7 +14,7 @@ install_zsh() {
 install_thefuck_linux() {
   print_cmd "Installing thefuck"
   sudo apt update
-  sudo apt install python3-dev python3-pip
+  sudo apt install -y python3-dev python3-pip
   sudo pip3 install thefuck
 }
 
