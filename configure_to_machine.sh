@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 print_cmd() {
   echo "*******************"
   echo "** $1"
@@ -32,7 +34,7 @@ case "${unameOut}" in
 esac
 echo ${machine}
 
-set -e
+chsh -s $(which zsh)
 
 print_cmd "Setting up config files"
 
