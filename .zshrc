@@ -4,7 +4,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=~/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/evanfrawley/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -92,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 alias gg="cd ~/Github"
 alias ds="gg && cd ds"
 alias drake="gg && cd fifth-drake"
-alias dropbox="cd /Users/evanfrawley/Dropbox"
+alias dropbox="cd ~/Dropbox"
 alias gep="gg && cd esportsedu-project/"
 alias ge="gep && cd esportsedu"
 alias gea="gep && cd esportsedu-api"
@@ -143,7 +143,7 @@ alias renode="rm ./yarn.lock && rm -rf node_modules/ && yarn"
 # Maven Home
 # export PATH="/usr/local/opt/apache-maven-3.5.0/bin:${PATH}"
 # Add Activator to PATH
-# export PATH="/Users/evanfrawley/DevelopmentTools/activator-dist-1.3.12/bin:${PATH}"
+# export PATH="~/DevelopmentTools/activator-dist-1.3.12/bin:${PATH}"
 
 ######################################
 ### JAVA STUFF
@@ -161,7 +161,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
 ######################################
 ### GOLANG STUFF
 ######################################
-export GOPATH=/Users/evanfrawley/go
+export GOPATH=~/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH="$GOPATH/bin:$PATH"
 # Why do I have so many port & local address variables lol
@@ -234,7 +234,7 @@ alias refenv='source ~/.zshrc'
 eval $(thefuck --alias)
 
 # added by travis gem.. why do I need this?
-[ -f /Users/evanfrawley/.travis/travis.sh ] && source /Users/evanfrawley/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 ######################################
 ### DOCKER STUFF
