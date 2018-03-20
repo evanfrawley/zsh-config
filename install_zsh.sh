@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-
-set -e
-
 print_cmd() {
   echo "*******************"
   echo "** $1"
@@ -32,12 +29,5 @@ case "${unameOut}" in
     Darwin*)    install_zsh; install_thefuck_mac;;
     *)          machine="UNKNOWN:${unameOut}, please use a real dev env"
 esac
-echo ${machine}
 
-chsh -s $(which zsh)
-
-print_cmd "Setting up config files"
-
-. ./update_from_repo.sh
-
-print_cmd "Done"
+exit 0

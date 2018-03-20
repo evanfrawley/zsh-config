@@ -6,6 +6,8 @@ print_cmd() {
   echo "*******************"
 }
 
+print_cmd "Setting up config files"
+
 cd ~/zsh-config
 
 print_cmd "Pulling repo"

@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-source ./secrets.zsh
+. ./secrets.zsh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=~/.local/bin:$PATH
 
