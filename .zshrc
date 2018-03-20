@@ -150,13 +150,13 @@ alias renode="rm ./yarn.lock && rm -rf node_modules/ && yarn"
 ######################################
 
 # Java Options
-export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8"
-# Setting PATH for Python 3.6
-export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-# For Java 7
-# export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
-# For Java 8
-export JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
+# export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8"
+# # Setting PATH for Python 3.6
+# export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+# # For Java 7
+# # export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
+# # For Java 8
+# export JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
 
 ######################################
 ### GOLANG STUFF
