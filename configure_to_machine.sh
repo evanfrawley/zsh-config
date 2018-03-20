@@ -38,6 +38,6 @@ chsh -s $(which zsh)
 
 print_cmd "Setting up config files"
 
-source ./update_from_repo.sh
-s
+. ./update_from_repo.sh
+
 print_cmd "Done"
