@@ -26,8 +26,8 @@ install_thefuck_mac() {
 print_cmd "Downloading zsh"
 unameOut="$(uname -s)"
 case "${unameOut}" in
-    Linux*)     install_zsh(); install_thefuck_linux();;
-    Darwin*)    install_zsh(); install_thefuck_mac();;
+    Linux*)     install_zsh; install_thefuck_linux;;
+    Darwin*)    install_zsh; install_thefuck_mac;;
     *)          machine="UNKNOWN:${unameOut}, please use a real dev env"
 esac
 echo ${machine}
