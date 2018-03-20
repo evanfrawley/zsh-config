@@ -38,8 +38,6 @@ chsh -s $(which zsh)
 
 print_cmd "Setting up config files"
 
-cp ~/zsh-config/.zshrc ~/.zshrc
-cp ~/zsh-config/secrets.zsh ~/secrets.zsh
-source ~/.zshrc
-
+source ./update_from_repo.sh
+s
 print_cmd "Done"
