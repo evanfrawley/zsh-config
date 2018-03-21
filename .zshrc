@@ -278,5 +278,5 @@ alias eredis="docker exec -it dev-redissvr redis-cli"
 export PATH="$HOME/anaconda3/bin:$PATH"
 
 change_prompt() {
-  export PROMPT="% #$1 ~ "
+  export PROMPT="${ret_status} | $1 | %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
 }
