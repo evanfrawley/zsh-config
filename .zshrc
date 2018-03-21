@@ -6,6 +6,21 @@ export PATH=~/.local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
+salvage_custom_prompt() {
+  if [ -z $CUSTOM_PROMPT ]; then
+    export PROMPT="${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
+  else
+    export PROMPT="${ret_status}$CUSTOM_PROMPT %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
+  fi
+}
+
+change_prompt() {
+  export CUSTOM_PROMPT=$1
+  salvage_custom_prompt
+}
+
+source $ZSH/oh-my-zsh.sh && salvage_custom_prompt
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -55,7 +70,6 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git encode64 jsontools yarn osx)
 
-source $ZSH/oh-my-zsh.sh && salvage_custom_prompt
 
 # User configuration
 
@@ -276,16 +290,3 @@ alias eredis="docker exec -it dev-redissvr redis-cli"
 
 ### Python Stuff
 export PATH="$HOME/anaconda3/bin:$PATH"
-
-salvage_custom_prompt() {
-  if [ -z $CUSTOM_PROMPT ]; then
-    export PROMPT="${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
-  else
-    export PROMPT="${ret_status}$CUSTOM_PROMPT %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
-  fi
-}
-
-change_prompt() {
-  export CUSTOM_PROMPT=$1
-  salvage_custom_prompt
-}
