@@ -1,31 +1,18 @@
 # If you come from bash you might have to change your $PATH.
-. ./secrets.zsh
+. ~/secrets.zsh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=~/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-salvage_custom_prompt() {
-  if [ -z $CUSTOM_PROMPT ]; then
-    export PROMPT="${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
-  else
-    export PROMPT="${ret_status}$CUSTOM_PROMPT %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
-  fi
-}
-
-change_prompt() {
-  export CUSTOM_PROMPT=$1
-  salvage_custom_prompt
-}
-
-source $ZSH/oh-my-zsh.sh && salvage_custom_prompt
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+source $ZSH/oh-my-zsh.sh
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -243,7 +230,7 @@ alias wperr='webpack --display-error-details'
 # Open this file in atom
 alias oz='atom ~/.zshrc'
 # Refreshes profile
-alias refenv='source ~/.zshrc && salvage_custom_prompt'
+alias refenv='source ~/.zshrc'
 # Cuz pushing on a new branch gets easier
 eval $(thefuck --alias)
 
