@@ -55,7 +55,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git encode64 jsontools yarn osx)
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh && salvage_custom_prompt
 
 # User configuration
 
@@ -229,7 +229,7 @@ alias wperr='webpack --display-error-details'
 # Open this file in atom
 alias oz='atom ~/.zshrc'
 # Refreshes profile
-alias refenv='source ~/.zshrc'
+alias refenv='source ~/.zshrc && salvage_custom_prompt'
 # Cuz pushing on a new branch gets easier
 eval $(thefuck --alias)
 
@@ -277,6 +277,15 @@ alias eredis="docker exec -it dev-redissvr redis-cli"
 ### Python Stuff
 export PATH="$HOME/anaconda3/bin:$PATH"
 
+salvage_custom_prompt() {
+  if [ -z $CUSTOM_PROMPT ]; then
+    export PROMPT="${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
+  else
+    export PROMPT="${ret_status}$CUSTOM_PROMPT %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
+  fi
+}
+
 change_prompt() {
-  export PROMPT="${ret_status} | $1 | %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)"
+  export CUSTOM_PROMPT=$1
+  salvage_custom_prompt
 }
