@@ -277,6 +277,6 @@ alias eredis="docker exec -it dev-redissvr redis-cli"
 ### Python Stuff
 export PATH="$HOME/anaconda3/bin:$PATH"
 
-case "${unameOut}" in
-    Linux*)  export PROMPT="$emoji[cloud]  > ";;
-esac
+change_prompt() {
+  export PROMPT="% #$1 ~ "
+}
