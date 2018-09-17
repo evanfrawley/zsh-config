@@ -1,7 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 . ~/secrets.zsh
+source ~/.profile
+export PATH=/Users/evanfrawley/.rvm/gems/ruby-2.3.5/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=~/.local/bin:$PATH
+export PATH=/Users/evanfrawley/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -12,7 +15,10 @@ export ZSH=~/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+export NEO4J_HOME=~/neo4j-community-3.4.0
+
 source $ZSH/oh-my-zsh.sh
+RPROMPT="[%D{%m/%f/%y}|%@]"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -116,7 +122,9 @@ alias cap="gg && cd capstone"
 alias md="gg && cd memedating"
 alias mmd="gg && cd ios-memedating"
 alias snopes="cap && cd snopes"
-alias noni="gg && cd noni-web"
+alias noni="gg && cd noni"
+alias strix="gg && cd strix"
+alias req="ggo && cd github.com/evanfrawley/requaint"
 
 ######################################
 ### LOCAL DB RUNNING COMMANDS
@@ -262,6 +270,9 @@ dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 # Bash into running container
 dlogs() { docker logs $1 }
 
+# Nuke all docker containers / images
+dnuke() { docker kill $(docker ps -qa); docker rm -v $(docker ps -qa); docker rmi -f $(docker images -q);  }
+
 ######################################
 ### CURL STUFF
 ######################################
@@ -277,3 +288,12 @@ alias eredis="docker exec -it dev-redissvr redis-cli"
 
 ### Python Stuff
 export PATH="$HOME/anaconda3/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/evanfrawley/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/evanfrawley/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/evanfrawley/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/evanfrawley/google-cloud-sdk/completion.zsh.inc'; fi
