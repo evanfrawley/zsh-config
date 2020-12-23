@@ -1,24 +1,16 @@
-# If you come from bash you might have to change your $PATH.
+q# If you come from bash you might have to change your $PATH.
 . ~/secrets.zsh
-source ~/.profile
-export PATH=/Users/evanfrawley/.rvm/gems/ruby-2.3.5/bin:$PATH
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=~/.local/bin:$PATH
-export PATH=/Users/evanfrawley/.cargo/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
-
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-export NEO4J_HOME=~/neo4j-community-3.4.0
-
+export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+source ~/.bash_profile
 RPROMPT="[%D{%m/%f/%y}|%@]"
+PROMPT=$(echo $PROMPT | sed 's/(base) //')
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -61,8 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git encode64 jsontools yarn osx)
-
+plugins=(encode64 jsontools osx)
 
 # User configuration
 
@@ -96,90 +87,19 @@ plugins=(git encode64 jsontools yarn osx)
 ######################################
 ### CHANGE LOCATION
 ######################################
-alias gg="cd ~/Github"
-alias ds="gg && cd ds"
-alias drake="gg && cd fifth-drake"
-alias dropbox="cd ~/Dropbox"
-alias gep="gg && cd esportsedu-project/"
-alias ge="gep && cd esportsedu"
-alias gea="gep && cd esportsedu-api"
-alias gew="gep && cd esportsedu-webapp"
-alias ges="gep && cd esportsedu-shiny"
-alias gec="gep && cd esportsedu-common"
-alias gesql="gep && cd esportsedu-sql"
-alias ggo="cd ~/go/src"
-alias goin="ggo && cd github.com/info344-a17"
-alias goc="goin && cd challenges-evanfrawley"
-alias meme="ggo && cd github.com/memedating/memedating"
-alias group="meme"
-alias gome="ggo && cd github.com/evanfrawley"
-alias ms="gome && cd moms-spaghetti"
-alias goinc="ggo && cd info344-in-class"
-alias gota="gg && cd ta/info343"
-alias gj="gg && cd journal"
-alias notes="gj && cd notes"
-alias cap="gg && cd capstone"
-alias md="gg && cd memedating"
-alias mmd="gg && cd ios-memedating"
-alias snopes="cap && cd snopes"
-alias noni="gg && cd noni"
-alias strix="gg && cd strix"
-alias req="ggo && cd github.com/evanfrawley/requaint"
+alias gg="cd ~/code"
+alias ggo="cd ~/go/src/github.com"
+alias ggg="cd ~/go/src/github.com/kangagg/kanga2"
 
-######################################
-### LOCAL DB RUNNING COMMANDS
-######################################
-# Start PSQL
-alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-# Stop PSQL
-alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-# Start Fifth Drake DB stuff
-alias dstart="pgstart && mongod"
-# Stop Fifth Drake DB stuff
-alias dstop="pgstop && /usr/local/bin/mongo < \"/data/db/scripts/stopDb.js\""
-
-######################################
-### WEB DEV STUFF
-######################################
-# Delete and reinstall all node packages
-alias renode="rm ./yarn.lock && rm -rf node_modules/ && yarn"
-
-######################################
-### MAVEN & FIFTH DRAKE STUFF
-######################################
-# Maven Options
-# export MAVEN_OPTS="-Xmx1024M -Xms2048M -XX:PermSize=256M -XX:MaxPermSize=256M -Djava.awt.headless=true"
-# Maven Home
-# export PATH="/usr/local/opt/apache-maven-3.5.0/bin:${PATH}"
-# Add Activator to PATH
-# export PATH="~/DevelopmentTools/activator-dist-1.3.12/bin:${PATH}"
-
-######################################
-### JAVA STUFF
-######################################
-
-# Java Options
-# export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8"
-# # Setting PATH for Python 3.6
-# export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-# # For Java 7
-# # export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
-# # For Java 8
-# export JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
+####################
 
 ######################################
 ### GOLANG STUFF
 ######################################
 export GOPATH=~/go
-export GOROOT=/usr/local/opt/go/libexec
 export PATH="$GOPATH/bin:$PATH"
-# Why do I have so many port & local address variables lol
-export GOADDR="localhost:4000"
-export PORT="$GOADDR"
-export ADDR="$GOADDR"
-export GO_ENV="development"
-export REDISADDR="localhost:6379"
-alias htmltest="go test -coverprofile=coverage.out && go tool cover -html=coverage.out"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:/Users/evanfrawley/Library/Python/3.7/bin:$PATH"
+alias python="python3"
 
 ######################################
 ### PERSONAL SITE STUFF
@@ -192,23 +112,20 @@ export PERSONAL_SITE_IP=192.241.212.197
 
 # Git log
 alias log='git log'
-# Force push dat
-alias push='git push -f'
+# Git Status
+alias gs='git status'
+# Git diff
+alias gd='git diff'
 # Go back to last branch
 alias back='git checkout @{-1}'
 # Go to `dev` branch... this should be more robust though
-alias dev='git checkout development'
-# Pull
-alias pull='git pull --rebase upstream HEAD'
-# Force Push
-alias fpush='git push -f origin HEAD'
-# To go back to the branch you were just on
-alias back='git checkout @{-1}'
+alias staging='git checkout staging'
+alias master='git checkout master'
 # All git branches
 alias allbranch='git branch -a'
 # Local git branches
 alias branch='git branch'
-
+alias unix_ts="date +'%s'"
 # git commit --amend -m ""
 # Amend
 function amend {
@@ -219,10 +136,10 @@ function amend {
 function co {
   git branch | sed -n "$1p" | xargs git checkout
 }
-
+ 
 # Deletes a branch that maps to a row in git branch
 function delb {
-  git branch | sed -n "$1p" | xargs git branch -D
+  git branch | egrep -v "(master|staging)" | xargs git branch -D
 }
 
 # Squashing
@@ -233,67 +150,82 @@ function squash {
 ######################################
 ### OTHER HELPERS TO MAKE LIFE :)
 ######################################
-# Displays webpack errors... Do I even use this
-alias wperr='webpack --display-error-details'
-# Open this file in atom
-alias oz='atom ~/.zshrc'
+# Open this file in vscode
+alias oz='code ~/.zshrc'
+# Open boop scripts in vscode
+alias boop='code ~/.boop/'
 # Refreshes profile
-alias refenv='source ~/.zshrc'
+alias refenv='source ~/.zshrc' 
+alias ref='source ~/.zshrc' 
 # Cuz pushing on a new branch gets easier
 eval $(thefuck --alias)
-
-# added by travis gem.. why do I need this?
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 ######################################
 ### DOCKER STUFF
 ######################################
 export DOCKER_USER=evanfrawley
-# Get images
-alias di="docker images"
-
 # Get container process
 alias dps="docker ps"
 
 # Get process included stop container
 alias dpa="docker ps -a"
 
-# Remove all containers
-drmf() { docker rm -f $(docker ps -a -q); }
-
-# Remove all images
-dri() { docker rmi $(docker images -q); }
-
-# Bash into running container
-dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
-
 # Bash into running container
 dlogs() { docker logs $1 }
 
+# Remove all containers
+function drmf() { docker rm -f $(docker ps -a -q); }
+
+# Remove all images
+function dri() { docker rmi $(docker images -q); }
+
+# Get images
+alias di="docker images"
+
+# Bash into running container
+function dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
 # Nuke all docker containers / images
-dnuke() { docker kill $(docker ps -qa); docker rm -v $(docker ps -qa); docker rmi -f $(docker images -q);  }
+function dnuke() { docker kill $(docker ps -qa); docker rm -v $(docker ps -qa); docker rmi -f $(docker images -q);  }
 
-######################################
-### CURL STUFF
-######################################
-lcurl() {
-  curl -k https://localhost/v1/$1 -X $2 \
-  -H "Authorization: $3"
-}
+# Redis CLI
+function rcli() { docker exec -it $1 redis-cli  }
 
-# Open Mongo
-alias emongo="docker exec -it dev-mongosvr mongo"
-# Open Redis
-alias eredis="docker exec -it dev-redissvr redis-cli"
-
-### Python Stuff
-export PATH="$HOME/anaconda3/bin:$PATH"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#### Yarn shortcuts
+alias ybs="yarn build:staging"
+alias ybp="yarn build:prod"
+alias ybl="yarn build:local"
+alias yp="yarn package"
+alias yf="yarn format"
+alias yfq="yarn format:quiet"
+alias yp="yarn package"
+alias ypff="yarn package:firefox"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/evanfrawley/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/evanfrawley/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/evanfrawley/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/evanfrawley/Desktop/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/evanfrawley/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/evanfrawley/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/evanfrawley/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/evanfrawley/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
+
+## Android Studio Stuff
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/evanfrawley/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/evanfrawley/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/evanfrawley/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/evanfrawley/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
